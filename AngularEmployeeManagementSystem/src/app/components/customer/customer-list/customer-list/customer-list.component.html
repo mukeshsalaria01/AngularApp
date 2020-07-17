@@ -1,0 +1,93 @@
+
+ <div class="content-wrapper">
+    <!-- Content Header (Page header) -->
+    <section class="content-header">
+      <div class="container-fluid">
+        <div class="row mb-2">
+          <div class="col-sm-6">
+            <h1>Manage Customer List<span><a [routerLink]="['/employee/list']" class="btn btn-primary btn-sm ml-1"><i class="fa fa-arrow-circle-left"></i>  Back</a> </span></h1>
+          </div>
+          <div class="col-sm-6">
+            <ol class="breadcrumb float-sm-right">
+              <li class="breadcrumb-item"><a href="#">Home</a></li>
+              <li class="breadcrumb-item active">List</li>
+            </ol>
+          </div>
+        </div>
+      </div>
+    </section>
+ 
+   
+    <section class="content">
+      <div class="container-fluid">
+        <div class="row">
+          <div class="col-12">
+            <div class="card">
+              <div class="card-header">
+ 
+               <div class="row">
+                 <div class="col">
+                     <span class="h5 border-right-1 pr-2"><i class="icon-truck-fast"></i>Customer List</span>
+                 </div>
+                 <div class="col col text-right">
+                     <a (click)="addNewCustomer('null')" class="btn btn-primary text-white">
+                         <i class="fa fa-plus mr-1"></i>New Customer
+                     </a>
+                 </div>
+             </div>
+               
+              </div>
+          
+              <div class="card-body">
+               <!--<div>
+                 <div class="form-group">
+                   <label for="userName" class="control-label">Name</label>
+                   <input type="text" (keyup)="search()" class="form-control" id="userName" name="userName" [(ngModel)]="userName">
+                 </div>
+               </div>--> 
+      
+    <table datatable [dtOptions]="dtOptions" [dtTrigger]="dtTrigger"  class="table table-bordered table-hover" style="width:100%">
+        <thead>
+           <tr>
+              <th>#SrNo</th>
+              <th>FirstName</th>
+              <th>LastName</th>
+              <th>MobileNumber</th>
+              <th>Email</th>
+              <th>Address</th>
+              <th>Action</th>
+           </tr>
+        </thead>
+        <tbody *ngIf="allCustomers != null || allCustomers?.length != 0">
+         <tr *ngFor="let customer of allCustomers ; let i = index" >                                            
+             <td>{{i+1}}</td>  
+             <td>{{customer.firstName  }}</td>  
+             <td>{{customer.lastName  }}</td>  
+             <td>{{customer.mobileNumber}}</td>  
+             <td>{{customer.email}}</td>  
+             <td>{{customer.address}}</td>                    
+              <td>
+             
+               &nbsp;&nbsp;  <i class='fas fa-pencil-alt' (click)="addNewCustomer(customer.customerId)"  style='font-size:14px'></i> &nbsp;&nbsp;
+              
+               <i class='fas fa-trash-alt'  (click)="deleteCustomer(customer.customerId)" style='font-size:14px'></i>
+              
+               
+
+             </td>  
+                 
+           </tr>
+        </tbody>
+        <tbody *ngIf="allCustomers?.length == 0">
+         <tr>
+           <td colspan="6" class="no-data-available">No data available in table</td>
+         </tr>
+       <tbody>
+ 
+     </table>
+     
+    </div>   
+  </div>
+ </div>
+  
+ 

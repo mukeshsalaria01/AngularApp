@@ -1,0 +1,78 @@
+<div class="login-page" style="min-height: 512.8px;">
+    <div class="login-box">
+      <div class="login-logo">
+        <a href="../../index2.html"><b>CMT</b> ERP</a>
+      </div>
+      <!-- /.login-logo -->
+      <div class="card">
+        <div class="card-body login-card-body">
+          <p class="login-box-msg">Sign in to start your session</p>
+    
+          <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+            <div class="input-group mb-3">
+              <input type="email" class="form-control" placeholder="Email" formControlName="Email" class="form-control" [ngClass]="{'is-invalid':submitted && f.Email.errors}">            
+              <div class="input-group-append">
+                <div class="input-group-text">
+                  <span class="fas fa-envelope"></span>
+                </div>
+              </div>
+
+              <div *ngIf="submitted && f.Email.errors" class="invalid-feedback">
+                <div *ngIf="f.Email.errors.required"> Email is required</div>
+                <div *ngIf="f.Email.errors.email">Email must be a valid email address</div>
+               </div>
+            </div>
+
+            <div class="input-group mb-3">
+              <input type="password" class="form-control" placeholder="Password" formControlName="Password" class="form-control" [ngClass]="{'is-invalid':submitted && f.Password.errors}">            
+              <div class="input-group-append">
+                <div class="input-group-text">
+                  <span class="fas fa-lock"></span>
+                </div>
+              </div>
+
+              <div *ngIf="submitted && f.Password.errors" class="invalid-feedback">
+                <div *ngIf="f.Password.errors.required"> Password is required</div>
+               </div>
+            </div>
+
+
+            <div class="form-group row">
+                <div class="col-md-6 col-12 text-center text-sm-left">
+                    <div class="icheck-primary">
+                        <input type="checkbox" id="remember" data-val="true" data-val-required="The RememberMe field is required." name="RememberMe" value="true" formControlName="RememberMe" class="form-control" [ngClass]="{'is-invalid':submitted && f.RememberMe.errors}">
+                        <label for="remember">
+                            Remember Me
+                        </label>
+                    </div>
+                </div>
+            </div>
+
+            <button type="submit" class="btn btn-primary btn-block">Login</button>
+          </form>
+    
+        
+          <!-- /.social-auth-links -->
+    
+          <p class="mb-1">
+            <!--<a href="forgot-password.html">I forgot my password</a>-->
+          </p>
+          <p class="mb-0">
+            <a [routerLink]="['/account/register']" class="text-center">Register a new membership</a>
+          </p>
+        </div>
+        <!-- /.login-card-body -->
+      </div>
+    </div>
+    <!-- /.login-box -->
+    
+    <!-- jQuery -->
+    <script src="../../plugins/jquery/jquery.min.js"></script>
+    <!-- Bootstrap 4 -->
+    <script src="../../plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <!-- AdminLTE App -->
+    <script src="../../dist/js/adminlte.min.js"></script>
+    
+    
+    
+</div>

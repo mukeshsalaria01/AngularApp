@@ -1,0 +1,98 @@
+
+<div class="hold-transition register-page">
+  <div class="register-box">
+    <div class="register-logo">
+      <a href="../../index2.html"><b>CMT</b> ERP</a>
+    </div>
+  
+    <div class="card">
+      <div class="card-body register-card-body">
+        <p class="login-box-msg">Register a new membership</p>
+  
+        <form [formGroup]="registerForm" (ngSubmit)="onSubmit()">
+          <div class="input-group mb-3">
+            <input type="text" class="form-control" placeholder="Full name" formControlName="UserName" class="form-control" [ngClass]="{'is-invalid':submitted && f.UserName.errors}">            
+            <div class="input-group-append">
+              <div class="input-group-text">
+                <span class="fas fa-user"></span>
+              </div>
+            </div>
+            <div *ngIf="submitted && f.UserName.errors" class="invalid-feedback">
+              <div *ngIf="f.UserName.errors.required"> User Name is required</div>
+             </div>
+          </div>
+
+
+          <div class="input-group mb-3">
+            <input type="email" class="form-control" placeholder="Email" formControlName="Email" class="form-control" [ngClass]="{'is-invalid':submitted && f.Email.errors}">            
+            <div class="input-group-append">
+              <div class="input-group-text">
+                <span class="fas fa-envelope"></span>
+              </div>
+            </div>
+            <div *ngIf="submitted && f.Email.errors" class="invalid-feedback">
+              <div *ngIf="f.Email.errors.required"> Email is required</div>
+              <div *ngIf="f.Email.errors.email">Email must be a valid email address</div>
+             </div>
+            
+          </div>
+
+          <div class="input-group mb-3">
+            <input type="password" class="form-control" placeholder="Password" formControlName="Password" class="form-control" [ngClass]="{'is-invalid':submitted && f.Password.errors}">            
+            <div class="input-group-append">
+              <div class="input-group-text">
+                <span class="fas fa-lock"></span>
+              </div>
+            </div>
+            <div *ngIf="submitted && f.Password.errors" class="invalid-feedback">
+              <div *ngIf="f.Password.errors.required"> Password is required</div>
+             </div>
+           
+          </div>
+          
+
+          <div class="input-group mb-3">
+            <input type="password" class="form-control" placeholder="Retype password" placeholder="Password" formControlName="ConfirmPassword" class="form-control" [ngClass]="{'is-invalid':submitted && f.ConfirmPassword.errors}">            
+            <div class="input-group-append">
+              <div class="input-group-text">
+                <span class="fas fa-lock"></span>
+              </div>
+            </div>
+
+            <div *ngIf="submitted && f.ConfirmPassword.errors" class="invalid-feedback">
+              <div *ngIf="f.ConfirmPassword.errors.required"> Confirm Password is required</div>            
+              <div *ngIf="f.ConfirmPassword.errors.confirmedValidator">Password and Confirm Password must be match.</div>
+              
+            </div>
+          
+
+          </div>
+
+
+          <div class="row">
+            <div class="col-12">
+                <button type="submit" class="btn btn-primary btn-block">Register</button>
+            </div>
+        </div>
+        </form>
+
+        <div class="row">
+          <div class="col-md-12">
+              <a [routerLink]="['/account/login']">
+                  <span title="Go back to Login" class="ml-1">
+                      <i class="fas fa-arrow-left" aria-hidden="true"></i>
+                  </span>  Go back to Login
+              </a>
+          </div>
+      </div>
+      </div>
+  
+      <!-- /.form-box -->
+    </div><!-- /.card -->
+  </div>
+  <!-- /.register-box -->
+  
+  <!-- jQuery -->
+  
+</div>
+

@@ -1,0 +1,124 @@
+<div class="content-wrapper">
+  <!-- Content Header (Page header) -->
+  <section class="content-header">
+    <div class="container-fluid">
+      <div class="row mb-2">
+        <div class="col-sm-6">
+          <h1>Employee Form <span><a  [routerLink]="['/employee/list']" class="btn btn-primary btn-sm ml-1"><i class="fa fa-arrow-circle-left"></i>  Back</a> </span></h1>
+        </div>
+        <div class="col-sm-6">
+          <ol class="breadcrumb float-sm-right">
+            <li class="breadcrumb-item"><a href="#">Home</a></li>
+            <li class="breadcrumb-item active">Add</li>
+          </ol>
+        </div>
+      </div>
+    </div><!-- /.container-fluid -->
+  </section>
+
+  <!-- Main content -->
+  <section class="content">
+    <div class="container-fluid">
+      <!-- SELECT2 EXAMPLE -->
+      <div class="card card-default">
+        <div class="card-header">
+          <h3 class="card-title">Add Employee</h3>       
+        </div>
+
+        <!-- /.card-header -->
+        <div class="card-body">
+          <form [formGroup]="employeeForm" (ngSubmit)="onSubmit()">
+            <div *ngIf="show"> <input type="hidden" formControlName="EmployeeId"></div>
+          <div class="row">
+          
+            <div class="col-md-6">
+              <div class="form-group">
+                <label>Employee Name</label>
+                <input type="text" formControlName="EmployeeName" class="form-control" [ngClass]="{'is-invalid':submitted && f.EmployeeName.errors}">    
+                <div *ngIf="submitted && f.EmployeeName.errors" class="invalid-feedback">
+                 <div *ngIf="f.EmployeeName.errors.required">Employee Name is required</div>
+                </div>
+              </div>
+              <!-- /.form-group -->
+              <div class="form-group">
+                <label>Position</label>
+                 <input type="text" formControlName="Position" class="form-control" [ngClass]="{'is-invalid':submitted && f.Position.errors}">    
+                 <div *ngIf="submitted && f.Position.errors" class="invalid-feedback">
+                  <div *ngIf="f.Position.errors.required">Position is required</div>
+                 </div>
+              </div>
+              <!-- /.form-group -->
+            </div>
+            <!-- /.col -->
+            <div class="col-md-6">
+              <div class="form-group">
+                <label>Office</label>
+                <input type="text" formControlName="Office" class="form-control" [ngClass]="{'is-invalid':submitted && f.Office.errors}">    
+                <div *ngIf="submitted && f.Office.errors" class="invalid-feedback">
+                 <div *ngIf="f.Office.errors.required">Position is required</div>
+                </div>
+              </div>
+              <!-- /.form-group -->
+              <div class="form-group">
+                <label>Age</label>
+                <input type="text" formControlName="Age" class="form-control" [ngClass]="{'is-invalid':submitted && f.Age.errors}">    
+                <div *ngIf="submitted && f.Age.errors" class="invalid-feedback">
+                 <div *ngIf="f.Age.errors.required">Age is required</div>
+                 <div *ngIf="f.Age.errors.pattern">Enter only number</div>
+                </div>
+              </div>
+              <!-- /.form-group -->
+            </div>
+            
+            <!-- /.col -->
+          </div>
+          <!-- /.row -->
+
+         
+          <div class="row">
+            <div class="col-12 col-sm-6">
+              <div class="form-group">
+                <label>Salary</label>
+                 <input type="text" formControlName="Salary" class="form-control" [ngClass]="{'is-invalid':submitted && f.Salary.errors}">    
+                 <div *ngIf="submitted && f.Salary.errors" class="invalid-feedback">
+                  <div *ngIf="f.Salary.errors.required">Salary is required</div>
+                  <div *ngIf="f.Salary.errors.pattern">Enter only number</div>
+                 </div>
+              </div>
+              <!-- /.form-group -->
+            </div>
+            <!-- /.col -->
+            <div class="col-12 col-sm-6">
+              <div class="form-group">
+                 <label>Role</label>               
+                 <select class="form-control" formControlName="RoleId" [ngClass]="{'is-invalid':submitted && f.RoleId.errors}">
+                  <option value="" >Select Role</option>
+                  <option value="1">Admin</option>
+                  <option value="2">SuperAdmin</option>
+                  <option value="3">User</option>
+               </select>
+               <div *ngIf="submitted && f.RoleId.errors" class="invalid-feedback">
+                <div *ngIf="f.RoleId.errors.required">Role is required</div>
+               </div>
+                </div>
+              </div>
+              <!-- /.form-group -->
+            </div>
+            <!-- /.col -->
+            <div class="card-footer" style="background: transparent;">
+              <div class="form-group" style="float: right;"> 
+                <button class="btn btn-default" type="reset" style="background-color: gray;color: white;" (click)="formReset()">Cancel</button> &nbsp;                         
+               
+                <button type="submit" style="color: transparent;background-color: transparent;border-color: transparent;">
+                <a type="submit" class="btn btn-primary text-white ladda-button" id="btnSaveitemInfo" data-style="expand-right" ><i class="fa fa-save mr-1"></i>Save</a>
+              </button>
+    
+              </div>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+      
+      </section>
+      </div>
